@@ -1,0 +1,338 @@
+@echo off
+title SystemWorks
+color 0a
+goto menu
+
+:menu
+cls
+echo %ip%
+echo -- Version 1.0.4 coming soon. Version 1.0.3 may be out of data --
+echo [Version: 1.0.3] [All rights reserved]
+echo.
+echo Enter a command
+echo Don't include your command with a space.
+echo.
+echo Update 1.0.3
+echo Added 5+ new commands
+echo Changed Void default settings
+echo Admin panel changed
+echo Added some admin member's
+echo Package changed
+echo Added a free create command
+echo Created a service to handle your own command settings
+echo Changed menu style
+echo MORE...
+echo.
+pause
+
+set /p commandp=
+
+if %commandp% == Title goto title
+if %commandp% == softwarevoid goto softwarevoid
+if %commandp% == 0 goto crash
+if %commandp% == Output goto luaerror
+if %commandp% == luacheck goto luacheck
+if %commandp% == terminate goto terminate
+if %commandp% == admin goto adminid
+if %commandp% == echo\off goto ErrTRJHD
+if %commandp% == CreateCode goto CreateCode
+if %commandp% == %code% goto ServiceLitle
+if %commandp% == EditService goto EditService
+if %commandp% == EditSystem goto EditSystem
+if %commandp% == OpenFile goto OpenFile
+if %commandp% == KillFile goto KillFile
+if %commandp% == ReciveService goto ReciveService
+goto ErrorNj-09
+
+:title
+echo.
+echo Enter a new program title
+pause
+
+set /p title=
+
+if %title% == goto title
+goto titleverified
+
+:titleverified
+title %title%
+cls
+echo New title set.
+pause
+cls
+goto menu
+
+:ErrorNj-09
+textcolor 0c
+echo.
+echo Error:
+echo Command Prompt ("%commandp%") was not found as a global or local script to our value. Please try again
+pause
+cls
+goto menu
+
+:softwarevoid
+echo.
+echo Change Void settings.
+echo 0-5
+pause
+
+set /p void=
+
+if %void% == 0 goto softwarevoiddone
+if %void% == 1 goto softwarevoiddone
+if %void% == 2 goto softwarevoiddone
+if %void% == 3 goto softwarevoiddone
+if %void% == 4 goto softwarevoiddone
+if %void% == 5 goto softwarevoiddone
+goto softwareerror
+
+:softwarevoiddone
+echo.
+echo softwarevoid settings has been changed
+pause
+cls
+goto menu
+
+:softwareerror
+echo.
+echo Please choose a VALID value.
+echo (0-5)
+pause
+cls
+goto softwarevoid
+if %void% == 
+
+:crash
+cls
+title Critical Error
+echo X=0000000000000000000000 Critcal Error
+pause
+exit
+
+:luaerror
+cls
+echo The command ("%commandp%") has lua errors. Please try a different command while the community is trying to fix this
+pause
+cls
+goto menu
+
+:luacheck
+cls
+echo Lua check
+echo Looks like The command "Output" is causing lua errors. [No fixes available]
+pause
+cls
+goto menu
+
+:terminate
+cls
+echo (-Termination Request-)
+echo Are you sure you want to terminate the current batch proccess.. %title% ? (Y/N)
+pause
+
+set /p terminate=
+
+if %terminate% == Y goto terminateexit
+if %terminate% == N goto terminatecancel
+goto terminatecancel1
+
+:terminatecancel
+echo Request canclled.
+pause
+cls
+goto menu
+
+
+:terminateexit
+cls
+echo Termination cofiomred.
+pause
+exit
+
+:terminatecancel1
+cls
+echo Request canclled.
+echo (Make sure your "Y" or "N" is capitallized!)
+pause
+cls
+goto terminate
+
+:adminid
+cls
+echo Welcome! If you want to log in to the admin panel, please enter your ID
+pause
+
+set /p ADMINID=
+
+if %ADMINID% == 8946 goto admin1
+goto adminidwrong
+
+:adminidwrong
+echo.
+echo The admin Id you entered is wrong. Please try again
+pause
+cls
+goto adminid
+
+:admin1
+cls
+echo Enter a command
+echo Don't include space
+pause
+
+set /p adcode=
+
+if %adcode% == echo\off goto echooff
+goto Error00000
+
+:ErrorTRJHD
+echo.
+echo Error code:(ErrorTRJHD)
+echo This command can only be used by moderator's.
+pause
+cls
+goto menu
+
+:echooff
+@echo on
+goto admin1
+
+:Error00000
+echo.
+echo That code isint a code...
+pause
+cls
+goto admin1
+
+:CreateCode
+cls
+echo Create a Command
+pause
+
+set /p code=
+
+if %code% == 732674236472364783264237473462478236478326 goto CreateCode
+goto Ready2378
+
+:Ready2378
+cls
+echo Your command is ready
+echo (Command Name: %code%)
+pause
+cls
+goto menu
+
+:ServiceLitle
+cls
+echo Welcome to your own command page
+echo If you would like to create/edit this command, use command CreateCode again!
+echo Service ID: %serviceid%
+pause
+cls
+goto menu
+
+:EditService
+cls
+echo --- Warning: You must have your own command to continue ---
+echo Service Code: %code%
+echo please continue to setup serviceid
+pause
+cls
+goto ServiceSetup
+
+:ServiceSetup
+cls
+echo Enter your Service ID
+echo email alejandrp09hey@gmail on how to get your own id
+pause
+
+set /p serviceid=
+
+if %serviceid% == 7645 goto ServiceDone
+goto ServiceError
+
+:ServiceDone
+cls
+echo Quick reminder. Whenever you close and reopen the application, you may need to set up the service again. But dont worry, all ID's are permanent! So they are unlimited use!p
+echo -----------
+echo You may exit out the set up
+pause
+cls
+goto menu
+
+:ServiceError
+echo.
+echo ID %serviceid% was not found. Contact alejandrp09hey@gmail.com to set up a service id.
+pause
+cls
+goto ServiceSetup
+
+
+:EditSystem
+cls
+echo EditSystem
+echo softwarevoid: %void%
+echo Name: %username%
+echo CreateCode Code: %code%
+echo ServiceID: %serviceid%
+echo.
+echo You are not allowed to edit any settings.
+pause
+cls
+goto menu
+
+:OpenFile
+cls
+echo Open a file
+pause
+
+set /p file=
+
+if %file% == %file% goto OpenFileOperation
+goto OpenFile
+
+:OpenFIleOperation
+start %file%
+echo Operation started.
+pause
+cls
+goto menu
+
+:KillFile
+cls
+echo Kill a proccess
+pause
+
+set /p killp=
+
+if %killp% == 0 goto KillFile
+goto KillFIleOperation
+
+:KillFileOperation
+taskkill -im %killp%
+echo Operation Killed
+pause
+cls
+goto menu
+
+:ReciveService
+if %void% == 3 goto ReciveServiceEdit
+if %void% == 4 goto ReciveServiceEdit
+if %void% == 5 goto ReciveServiceEdit
+cls
+echo Service Cannot be edited
+echo Invalid softwarevoid value.
+echo (try changing the value greater than "2")
+pause
+cls
+goto softwarevoid
+
+:ReciveServiceEdit
+cls
+echo No settings to change.
+pause
+cls
+goto menu
+
+

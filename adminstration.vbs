@@ -1,0 +1,1 @@
+x=msgbox("Hello admin! Remeber you can log in using command 'admin'",0+0,"Adminstration User Detetced")

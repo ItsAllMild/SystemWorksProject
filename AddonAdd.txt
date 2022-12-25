@@ -1,0 +1,1 @@
+x=msgbox("Addon has been added and cofigured.",0+12,"Addon Configured")

@@ -1,0 +1,28 @@
+@echo off
+cls
+title Credentails Loading...
+goto menu
+
+:menu
+title Credentails Menu
+cls
+echo Credentails menu.
+echo 1) Load Credentails
+echo 2) Load SystemWorks
+pause
+
+set /p action=
+if %action% == 1 goto CredentailsLoad
+if %action% == 2 start SystemWorks\SystemWorksMain.bat
+goto menu
+
+
+
+
+
+
+
+:CredentailsLoad
+title Credentails Loading...
+echo Loading...
+goto menu
